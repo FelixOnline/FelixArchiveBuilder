@@ -30,4 +30,6 @@ function extract_range(){
 pdf_root="${3:-./}"
 output_dir="${4:-text/}"
 
+mkdir -p $output_dir
+
 extract_range $1 $2

@@ -5,7 +5,7 @@ import os
 import sys
 import csv
 from collections import defaultdict
-from dateutil import parser
+from datetime import datetime
 from multiprocessing import Pool
 from math import log
 import re
@@ -215,12 +215,15 @@ def process_issue(issue):
 
 
 if __name__ == "__main__":
+    if not os.path.exists(output_dir):
+        os.mkdir(output_dir)
+
     if os.path.isfile("felix_dates.csv"):
         with open('felix_dates.csv', newline='', encoding='utf-8') as f:
             reader = csv.DictReader(f)
             for row in reader:
                 if row['date'] != 'None':
-                    parsed_date = parser.parse(row['date'], ignoretz=True, dayfirst=True)  # Unifying date format
+                    parsed_date = datetime.strptime(row['date'], '%Y-%m-%d')
 
                     # solr's DateRangeField is more appropriate here because we are storing a
                     # date, not a point in time. But we can only use DatePointField because

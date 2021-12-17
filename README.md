@@ -14,7 +14,7 @@ The output of this script is in `text` folder.
 
 ## solrify.py
 ```
-Prerequisite: Python 3.8 or above, dateutil package, Unix-like OS preferred
+Prerequisite: Python 3.8 or above, Unix-like OS preferred
 Usage: python3 solrify.py [first issue inclusive] [last issue inclusive] [directory containing output of extract_text.sh (default "text")] [output directory (default "output")]
 ```
 This Python script reads the OCRed archive content, performs a cleanup and output json files ready to be imported into solr. 
