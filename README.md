@@ -41,7 +41,7 @@ A manually validated (although not error-free) mapping between issue number and 
 ## configsets/felix_archive
 ```
 Prerequisite: Apache Solr
-Usage: cp -r configsets/felix_archive [solr_root]/sever/solr/configsets
+Usage: cp -r configsets/felix_archive [solr_root]/server/solr/configsets
 ```
 This is the solr schema. It has 5 fields: id, date, issue, page, content.
 This should be copied to `[solr_root]/sever/solr/configsets` so that a new solr core
