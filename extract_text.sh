@@ -27,7 +27,8 @@ function extract_range(){
   done
 }
 
-pdf_root="${3:-./}"
+#pdf_root="${3:-./}"
+pdf_root="issues"
 output_dir="${4:-text/}"
 
 mkdir -p $output_dir
