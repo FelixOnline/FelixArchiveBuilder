@@ -97,7 +97,7 @@ def preserve(s, min_length=2):
 # return buffer, then start over again
 def rebuild_words(content: str) -> str:
     # Splits on white space characters
-    parts = list(filter(None, re.split('(\W)', content)))
+    parts = list(filter(None, re.split(r'(\W)', content)))
     ret = []
     to_reconstruct = ""
     rebuilding = False
