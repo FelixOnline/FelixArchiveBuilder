@@ -22,15 +22,15 @@ function extract_issue() {
 function extract_range(){
   start=$1
   finish=$2
-  for issue in $(seq $start $finish); do
-    extract_issue $issue;
-  done
+  seq $start $finish | parallel -j "$(nproc)" extract_issue
 }
 
-#pdf_root="${3:-./}"
-pdf_root="issues"
+pdf_root="${3:-./}"
 output_dir="${4:-text/}"
 
 mkdir -p $output_dir
+
+export -f extract_issue
+export pdf_root output_dir
 
 extract_range $1 $2
